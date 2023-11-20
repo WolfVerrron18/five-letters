@@ -1,25 +1,32 @@
 <template>
   <div class="button-control" @click="onClicked">
-    <slot name="icon" v-if="!showText && !loading" />
+    <SlideTransition>
+      <slot name="icon" v-if="!showText && !loading" />
+    </SlideTransition>
 
-    <SvgLoader v-if="loading" />
+    <SlideTransition>
+      <SvgLoader v-if="loading" :stroke="strokeSpinner" />
+    </SlideTransition>
 
-    <p v-else-if="showText && !loading" class="button-control__text">{{ text }}</p>
+    <SlideTransition>
+      <p v-if="showText && !loading" class="button-control__text">{{ text }}</p>
+    </SlideTransition>
   </div>
 </template>
 
 <script>
 import SvgLoader from '@/components/Icons/SvgLoader.vue'
+import SlideTransition from '@/components/transitions/SlideTransition.vue'
 
 export default {
   name: 'ButtonControl',
 
-  components: { SvgLoader },
+  components: { SlideTransition, SvgLoader },
 
   props: {
     showText: {
       type: Boolean,
-      default: true
+      default: false
     },
 
     text: {
@@ -35,6 +42,11 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+
+    strokeSpinner: {
+      type: String,
+      default: 'white'
     }
   },
 

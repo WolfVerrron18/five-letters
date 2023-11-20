@@ -7,7 +7,7 @@
     <InputLetter v-model="letter" />
     <InputLetter v-model="letter" />
 
-    <KeyboardLetters />
+    <KeyboardSymbols />
   </div>
 </template>
 
@@ -15,12 +15,12 @@
 import { ref } from 'vue'
 
 import InputLetter from '@/components/controls/InputLetter.vue'
-import KeyboardLetters from '@/components/keyboard/KeyboardLetters.vue'
+import KeyboardSymbols from '@/components/keyboard/KeyboardSymbols.vue'
 
 export default {
   name: 'DeskLetters',
 
-  components: { KeyboardLetters, InputLetter },
+  components: { KeyboardSymbols, InputLetter },
 
   props: {},
 

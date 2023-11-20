@@ -1,15 +1,15 @@
 <template>
-  <div class="keyboard-key" :style="{ gridArea }">
-    {{ letter }}
+  <div class="keyboard-key" :style="{ gridArea }" @click="onClicked(symbol)">
+    {{ symbol }}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'KeyboardLettersKey',
+  name: 'KeyboardSymbol',
 
   props: {
-    letter: {
+    symbol: {
       type: String,
       default: ''
     },
@@ -20,7 +20,13 @@ export default {
     }
   },
 
-  setup() {}
+  emits: ['onClicked'],
+
+  setup(_, { emit }) {
+    const onClicked = (character) => emit('onClicked', character)
+
+    return { onClicked }
+  }
 }
 </script>
 
@@ -34,7 +40,8 @@ export default {
   border-radius: 5px;
   cursor: pointer;
   padding: 10px;
-  background: #afaf29;
+  color: white;
+  background: var(--main-border-color);
   border: 1px solid var(--main-border-color);
 }
 </style>
