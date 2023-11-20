@@ -1,0 +1,33 @@
+<template>
+  <svg width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+    <path
+      d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
+    />
+  </svg>
+</template>
+
+<script>
+export default {
+  name: 'SvgCross',
+
+  components: {},
+
+  props: {
+    /** @property {number} width - Ширина иконки */
+    width: {
+      type: Number,
+      default: 16
+    },
+
+    /** @property {number} height - Высота иконки */
+    height: {
+      type: Number,
+      default: 16
+    }
+  },
+
+  setup() {}
+}
+</script>
+
+<style lang="scss" scoped></style>
